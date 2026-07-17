@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Manager &amp; CET eNPS — Q2 2026 | Einstein Moving Company</title>
+<style>
+  :root{
+    --orange-50:#FEF6EC; --orange-100:#FDE3C2; --orange-500:#EF8B22; --orange-900:#CC5500;
+    --navy-50:#EEF1F4; --navy-100:#CDD5DA; --navy-400:#507080; --navy-500:#27343D; --navy-700:#1A2329;
+    --blue-50:#EBF4FB; --blue-100:#C3DFEF; --blue-500:#0979C3; --blue-900:#023B63;
+    --grey-50:#F4F5F5; --grey-100:#E2E3E4; --grey-200:#C0C2C4; --grey-500:#53575A; --grey-700:#363839;
+    --success:#69995D; --error:#CC0100;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Roboto',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+       color:var(--grey-500);background:var(--grey-50);font-size:16px;line-height:1.55}
+  .page{max-width:1100px;margin:0 auto;padding:32px 24px 64px}
+  h1,h2,h3{color:var(--navy-500);line-height:1.2}
+  header{background:var(--navy-500);color:#fff;border-radius:12px;padding:32px 40px;margin-bottom:24px;
+         display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px}
+  header h1{color:#fff;font-size:28px}
+  header .sub{color:var(--navy-100);font-size:14px;margin-top:6px}
+  .badge{background:var(--orange-500);color:var(--navy-500);font-weight:700;padding:6px 14px;border-radius:999px;font-size:13px;letter-spacing:.03em}
+  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:16px;margin-bottom:24px}
+  .kpi{background:#fff;border-radius:12px;padding:20px 24px;border:1px solid var(--grey-100)}
+  .kpi .num{font-size:34px;font-weight:700;color:var(--navy-500)}
+  .kpi .num .delta{font-size:15px;font-weight:700;color:var(--success);vertical-align:middle;margin-left:6px}
+  .kpi .lbl{font-size:13px;color:var(--grey-500);margin-top:2px}
+  .kpi.hero{background:var(--orange-50);border-color:var(--orange-100)}
+  .kpi.hero .num{color:var(--orange-900)}
+  section{background:#fff;border-radius:12px;border:1px solid var(--grey-100);padding:28px 32px;margin-bottom:24px}
+  section h2{font-size:20px;margin-bottom:4px}
+  .kicker{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--blue-500);font-weight:700;margin-bottom:2px}
+  .note{font-size:13px;color:var(--navy-400);margin-bottom:16px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+  @media(max-width:860px){.grid2{grid-template-columns:1fr}}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  th{text-align:left;background:var(--navy-50);color:var(--navy-500);padding:8px 10px;font-size:12px;letter-spacing:.04em;text-transform:uppercase}
+  td{padding:8px 10px;border-bottom:1px solid var(--grey-100);color:var(--grey-700)}
+  td.num,th.num{text-align:center}
+  .score{display:inline-block;min-width:44px;text-align:center;padding:3px 8px;border-radius:6px;font-weight:700;font-size:13px}
+  .s-green{background:#E3EEDF;color:#3E6636}
+  .s-yellow{background:#FFF6D6;color:#7A5D00}
+  .s-none{background:var(--grey-100);color:var(--grey-500)}
+  .themes{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:16px}
+  @media(max-width:900px){.themes{grid-template-columns:1fr}}
+  .theme-col{border-radius:12px;padding:20px;border:1px solid var(--grey-100)}
+  .theme-col.start{background:var(--blue-50)}
+  .theme-col.stop{background:var(--orange-50)}
+  .theme-col.keep{background:#F0F5EE}
+  .theme-col h3{font-size:16px;margin-bottom:2px}
+  .theme-col .tag{font-size:11px;letter-spacing:.08em;text-transform:uppercase;font-weight:700}
+  .start .tag{color:var(--blue-500)} .stop .tag{color:var(--orange-900)} .keep .tag{color:var(--success)}
+  .theme{margin-top:14px}
+  .theme .t-head{display:flex;align-items:baseline;gap:8px}
+  .theme .t-name{font-weight:700;color:var(--navy-500);font-size:14px}
+  .theme .count{font-size:11px;font-weight:700;background:#fff;border:1px solid var(--grey-200);color:var(--grey-500);
+                border-radius:999px;padding:1px 8px;white-space:nowrap}
+  .theme p{font-size:13px;color:var(--grey-700);margin-top:3px}
+  blockquote{font-size:13px;font-style:italic;color:var(--navy-500);border-left:3px solid var(--grey-200);
+             padding:2px 0 2px 12px;margin-top:8px}
+  blockquote .who{font-style:normal;color:var(--navy-400);font-size:12px}
+  .signals{background:var(--navy-50)}
+  .signal-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+  @media(max-width:860px){.signal-grid{grid-template-columns:1fr}}
+  .signal{background:#fff;border-radius:10px;padding:14px 16px;border:1px solid var(--navy-100)}
+  .signal .s-tag{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--blue-500)}
+  .signal .s-name{font-weight:700;color:var(--navy-500);font-size:14px;margin:2px 0}
+  .signal p{font-size:13px;color:var(--grey-700)}
+  .callout{background:var(--blue-50);border-radius:10px;padding:14px 18px;font-size:14px;color:var(--navy-500);margin-top:16px}
+  .callout b{color:var(--blue-900)}
+  footer{font-size:12px;color:var(--navy-400);line-height:1.7;padding:0 8px}
+  .chart-wrap{margin-top:8px}
+  .axis-lbl{font-size:11px;fill:var(--navy-400)}
+  .val-lbl{font-size:13px;font-weight:700;fill:var(--navy-500)}
+  .small-cav{font-size:12px;color:var(--navy-400);margin-top:8px}
+  .stackbar{display:flex;height:26px;border-radius:6px;overflow:hidden;margin-top:12px;font-size:12px;font-weight:700;color:#fff}
+  .stackbar div{display:flex;align-items:center;justify-content:center}
+  .legend{display:flex;gap:18px;font-size:12px;color:var(--grey-500);margin-top:8px;flex-wrap:wrap}
+  .legend span::before{content:'';display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+  .lg-p::before{background:var(--success)} .lg-pa::before{background:#E0B54A} .lg-d::before{background:var(--error)}
+  @media print{body{background:#fff}.page{padding:0}section,header{border-radius:0;break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header>
+  <div>
+    <h1>Manager &amp; CET Engagement Survey</h1>
+    <div class="sub">Q2 2026 (July cycle) · 52 responses — highest participation to date · survey closed 7/16/2026</div>
+  </div>
+  <div class="badge">eNPS +81</div>
+</header>
+
+<div class="kpis">
+  <div class="kpi hero"><div class="num">+81<span class="delta">▲ +1</span></div><div class="lbl">Company eNPS (vs. +80 in Jan)</div></div>
+  <div class="kpi"><div class="num">9.3<span style="font-size:16px;color:var(--grey-500)">/10</span></div><div class="lbl">Average score</div></div>
+  <div class="kpi"><div class="num">52</div><div class="lbl">Responses (Jan: 46)</div></div>
+  <div class="kpi"><div class="num">87%</div><div class="lbl">Praised in the last 14 days</div></div>
+  <div class="kpi"><div class="num">1</div><div class="lbl">Detractor (of 52)</div></div>
+</div>
+
+<section>
+  <div class="grid2">
+    <div>
+      <div class="kicker">Trend</div>
+      <h2>Two years at a high plateau</h2>
+      <p class="note">The climb from +63 (Jul 2024) tracks the comp cycles, recognition systems, and promote-from-within investments since. The number is stable — the texture underneath is where the work is.</p>
+      <div class="chart-wrap">
+        <svg viewBox="0 0 480 230" width="100%" role="img" aria-label="eNPS trend line chart: Jul 2024 +63, Jan 2025 +77, Jul 2025 +84, Jan 2026 +80, Jul 2026 +81">
+          <line x1="40" y1="10" x2="40" y2="190" stroke="#C0C2C4" stroke-width="1"/>
+          <line x1="40" y1="190" x2="460" y2="190" stroke="#C0C2C4" stroke-width="1"/>
+          <text x="34" y="194" text-anchor="end" class="axis-lbl">0</text>
+          <text x="34" y="104" text-anchor="end" class="axis-lbl">50</text>
+          <text x="34" y="18" text-anchor="end" class="axis-lbl">100</text>
+          <line x1="40" y1="100" x2="460" y2="100" stroke="#E2E3E4" stroke-width="1" stroke-dasharray="4 4"/>
+          <polyline points="80,76.6 172,51.4 264,38.8 356,46 448,44.2" fill="none" stroke="#EF8B22" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="80" cy="76.6" r="5" fill="#EF8B22"/><circle cx="172" cy="51.4" r="5" fill="#EF8B22"/>
+          <circle cx="264" cy="38.8" r="5" fill="#EF8B22"/><circle cx="356" cy="46" r="5" fill="#EF8B22"/>
+          <circle cx="448" cy="44.2" r="6.5" fill="#CC5500"/>
+          <text x="80" y="66" text-anchor="middle" class="val-lbl">+63</text>
+          <text x="172" y="41" text-anchor="middle" class="val-lbl">+77</text>
+          <text x="264" y="28" text-anchor="middle" class="val-lbl">+84</text>
+          <text x="356" y="68" text-anchor="middle" class="val-lbl">+80</text>
+          <text x="448" y="32" text-anchor="middle" class="val-lbl" fill="#CC5500">+81</text>
+          <text x="80" y="208" text-anchor="middle" class="axis-lbl">Jul '24</text>
+          <text x="172" y="208" text-anchor="middle" class="axis-lbl">Jan '25</text>
+          <text x="264" y="208" text-anchor="middle" class="axis-lbl">Jul '25</text>
+          <text x="356" y="208" text-anchor="middle" class="axis-lbl">Jan '26</text>
+          <text x="448" y="208" text-anchor="middle" class="axis-lbl" font-weight="bold">Jul '26</text>
+          <text x="80" y="222" text-anchor="middle" class="axis-lbl">n=38</text>
+          <text x="172" y="222" text-anchor="middle" class="axis-lbl">n=39</text>
+          <text x="264" y="222" text-anchor="middle" class="axis-lbl">n=45</text>
+          <text x="356" y="222" text-anchor="middle" class="axis-lbl">n=46</text>
+          <text x="448" y="222" text-anchor="middle" class="axis-lbl">n=52</text>
+        </svg>
+      </div>
+      <div class="stackbar">
+        <div style="background:var(--success);width:83%">43 promoters</div>
+        <div style="background:#E0B54A;width:15%">8</div>
+        <div style="background:var(--error);width:2%"></div>
+      </div>
+      <div class="legend"><span class="lg-p">Promoters (9–10) — 83%</span><span class="lg-pa">Passives (7–8) — 15%</span><span class="lg-d">Detractors (0–6) — 2%</span></div>
+    </div>
+    <div>
+      <div class="kicker">By Region</div>
+      <h2>CET shines; DFWT is the follow-up</h2>
+      <p class="note">Manager &amp; salaried eNPS (+81) runs well ahead of the Q1 mover survey (+46) — the people leading the work are our strongest promoters.</p>
+      <div class="chart-wrap">
+        <svg viewBox="0 0 480 210" width="100%" role="img" aria-label="eNPS by region bar chart">
+          <g font-size="13">
+            <text x="88" y="26" text-anchor="end" fill="#27343D" font-weight="bold">CET</text>
+            <rect x="96" y="12" width="291" height="22" rx="4" fill="#0979C3"/>
+            <text x="395" y="28" class="val-lbl">+90</text><text x="440" y="28" class="axis-lbl">n=21</text>
+            <text x="88" y="66" text-anchor="end" fill="#27343D" font-weight="bold">CTXH</text>
+            <rect x="96" y="52" width="236" height="22" rx="4" fill="#0979C3"/>
+            <text x="340" y="68" class="val-lbl">+73</text><text x="440" y="68" class="axis-lbl">n=15</text>
+            <text x="88" y="106" text-anchor="end" fill="#27343D" font-weight="bold">DFWT</text>
+            <rect x="96" y="92" width="194" height="22" rx="4" fill="#EF8B22"/>
+            <text x="298" y="108" class="val-lbl">+60</text><text x="440" y="108" class="axis-lbl">n=10</text>
+            <text x="88" y="146" text-anchor="end" fill="#27343D" font-weight="bold">G&amp;A</text>
+            <rect x="96" y="132" width="323" height="22" rx="4" fill="#88C0E4"/>
+            <text x="360" y="148" class="val-lbl" fill="#fff">+100</text><text x="440" y="148" class="axis-lbl">n=4*</text>
+            <text x="88" y="186" text-anchor="end" fill="#27343D" font-weight="bold">Rndtbl</text>
+            <rect x="96" y="172" width="323" height="22" rx="4" fill="#88C0E4"/>
+            <text x="360" y="188" class="val-lbl" fill="#fff">+100</text><text x="440" y="188" class="axis-lbl">n=2*</text>
+          </g>
+        </svg>
+        <div class="small-cav">*Small samples — read G&amp;A and Roundtable directionally, not statistically. Recognition (praised ≤14d): CET 90% · CTXH 87% · <b style="color:var(--orange-900)">DFWT 70%</b> · G&amp;A 100%.</div>
+      </div>
+      <div class="callout"><b>The one place to lean in:</b> all four passives in DFWT sit in the Fort Worth / Garland / McKinney BM-and-Ops layer, alongside the region's lowest recognition rate (70%). Their leadership scores for their RM are excellent — this reads as <b>workload and investment</b>, not a leadership problem.</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="kicker">Leadership Scorecard</div>
+  <h2>Core-values ratings — from each leader's own team only</h2>
+  <p class="note">5.00 = every direct rated "+". Basis: scores count only from a leader's own region/department (n shown). Cross-team feedback is preserved separately as comments — it doesn't move these numbers. This basis is new this cycle; see data notes.</p>
+  <table>
+    <tr><th>Leader</th><th class="num">n</th><th class="num">Communicate</th><th class="num">Hustle</th><th class="num">Ownership</th><th class="num">Improve</th><th class="num">Detail</th><th class="num">Elevate</th><th class="num">Support</th></tr>
+    <tr><td><b>Amanda Ware</b> — CET</td><td class="num">14</td>
+      <td class="num"><span class="score s-green">5.00</span></td><td class="num"><span class="score s-green">5.00</span></td><td class="num"><span class="score s-green">5.00</span></td><td class="num"><span class="score s-green">5.00</span></td><td class="num"><span class="score s-green">4.86</span></td><td class="num"><span class="score s-green">5.00</span></td><td class="num"><span class="score s-green">5.00</span></td></tr>
+    <tr><td><b>Mike Vandenbroader</b> — DFWT</td><td class="num">9</td>
+      <td class="num"><span class="score s-green">5.00</span></td><td class="num"><span class="score s-green">5.00</span></td><td class="num"><span class="score s-green">5.00</span></td><td class="num"><span class="score s-green">5.00</span></td><td class="num"><span class="score s-yellow">4.78</span></td><td class="num"><span class="score s-green">5.00</span></td><td class="num"><span class="score s-green">5.00</span></td></tr>
+    <tr><td><b>Brian Herzig</b> — CTXH</td><td class="num">15</td>
+      <td class="num"><span class="score s-green">5.00</span></td><td class="num"><span class="score s-green">4.87</span></td><td class="num"><span class="score s-yellow">4.60</span></td><td class="num"><span class="score s-green">4.87</span></td><td class="num"><span class="score s-yellow">4.60</span></td><td class="num"><span class="score s-yellow">4.73</span></td><td class="num"><span class="score s-green">5.00</span></td></tr>
+    <tr><td><b>Matisen Harper</b> — IT</td><td class="num">0</td>
+      <td class="num"><span class="score s-none">—</span></td><td class="num"><span class="score s-none">—</span></td><td class="num"><span class="score s-none">—</span></td><td class="num"><span class="score s-none">—</span></td><td class="num"><span class="score s-none">—</span></td><td class="num"><span class="score s-none">—</span></td><td class="num"><span class="score s-none">—</span></td></tr>
+  </table>
+  <div class="small-cav">Matisen's blank row is <b>structural, not a response failure</b>: his only internal direct is one person (contract devs aren't surveyed), so there's no anonymity in grading. Recommendation: cover IT leadership via skip-levels or the anonymous-180 lane and retire this section for n=1 teams.</div>
+</section>
+
+<section>
+  <div class="kicker">Start · Stop · Keep</div>
+  <h2>What the team is telling us — counted, not vibes</h2>
+  <p class="note">A theme appears below only if <b>4 or more people</b> raised it independently (≈8%+ of 52 respondents). Counts are shown. Strong one-off ideas live in the Signals box — as signals, not trends.</p>
+  <div class="themes">
+    <div class="theme-col start">
+      <div class="tag">Start</div>
+      <h3>Let's get moving on…</h3>
+      <div class="theme"><div class="t-head"><span class="t-name">Manager development &amp; the bench</span><span class="count">8 of 52</span></div>
+        <p>Structured training for new managers, SOPs per role, mentorship, BM pipeline. The dominant ask across both regions and CET — the field independently voted for the Q3 "speed to competence" direction.</p>
+        <blockquote>"Build more structured leadership training and mentorship for new and existing managers." <span class="who">— Frank Williams, Leander</span></blockquote></div>
+      <div class="theme"><div class="t-head"><span class="t-name">Career-path clarity &amp; reviews</span><span class="count">5 of 52</span></div>
+        <p>Clear benchmarks from Lead → management, lead pay differentiation, annual reviews for non-commissioned staff (incl. PH team post-Rippling).</p></div>
+      <div class="theme"><div class="t-head"><span class="t-name">Cross-team connection</span><span class="count">5 of 52</span></div>
+        <p>Mover-manager + upper-management roundtables, manager outings, family events, paid volunteer hours.</p></div>
+      <div class="theme"><div class="t-head"><span class="t-name">Flexibility for management</span><span class="count">4 of 52</span></div>
+        <p>Extend flex days to leadership/management; 4-day-week and WFH-day experiments. Raised at every level, including Roundtable.</p></div>
+    </div>
+    <div class="theme-col stop">
+      <div class="tag">Stop</div>
+      <h3>Pump the brakes on…</h3>
+      <div class="theme"><div class="t-head"><span class="t-name">Pace of change / initiative churn</span><span class="count">6 of 52</span></div>
+        <p>The loudest STOP. Initiatives shift before they land; policies change mid-quarter (driver scoring changed 3× in one quarter); rollouts outpace the team's capacity to absorb.</p>
+        <blockquote>"Be intentional about the pace of change… the majority of regular people do not have the capacity to absorb all of the changes meaningfully." <span class="who">— Anne Bosse</span></blockquote></div>
+      <div class="theme"><div class="t-head"><span class="t-name">Sales blocks &amp; goals for BMs</span><span class="count">4 of 52</span></div>
+        <p>Four branch leaders independently: BM sales-block hours cost the branch more than they earn, especially in hiring-heavy months. Feeds directly into the manager sales-bandwidth review already scheduled.</p></div>
+      <div class="theme"><div class="t-head"><span class="t-name">Unverified AI &amp; impersonal touchpoints</span><span class="count">4 of 52</span></div>
+        <p>Not anti-AI — anti-<i>unverified</i> AI: agent replies to branch emails felt impersonal; AI-produced data that can't be quickly checked creates stress. Counter-current: 4 others named AI leverage a top KEEP. The ask is verification norms + human moments.</p></div>
+    </div>
+    <div class="theme-col keep">
+      <div class="tag">Keep</div>
+      <h3>The good stuff</h3>
+      <div class="theme"><div class="t-head"><span class="t-name">Recognition &amp; celebration culture</span><span class="count">15 of 52</span></div>
+        <p>Praise, Legends, Magic Moments, parties, conference, quarterly prizes — the overwhelming KEEP. One refinement from within the love: keep it authentic; quota-driven praise can start to feel forced.</p>
+        <blockquote>"This level of psychological safety and accessible leadership is incredibly rare." <span class="who">— Arden Asilo, CET</span></blockquote></div>
+      <div class="theme"><div class="t-head"><span class="t-name">Bonuses &amp; incentives</span><span class="count">6 of 52</span></div>
+        <p>Margin bonus, quarterly prizes, monetary incentives — and "keep paying off this new office. I love it!"</p></div>
+      <div class="theme"><div class="t-head"><span class="t-name">Open-door leadership</span><span class="count">6 of 52</span></div>
+        <p>Access to leadership and open communication about direction, named repeatedly as what makes Einstein different.</p></div>
+      <div class="theme"><div class="t-head"><span class="t-name">AI leverage &amp; promote-from-within</span><span class="count">4 + 4</span></div>
+        <p>AI chiefs-of-staff and reduced meeting time (4 voices); promote-from-within and the high hiring bar (4 voices).</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="signals">
+  <div class="kicker">Signals &amp; Good Ideas</div>
+  <h2>Not trends — one to three voices each, worth seeing anyway</h2>
+  <div class="signal-grid">
+    <div class="signal"><div class="s-tag">Quote quality · 1 voice, hard claim</div><div class="s-name">"Team is losing trust in our quotes"</div>
+      <p>A BM estimates ~80% of misquote discounts at his branch trace to CET-produced quotes. One voice — but it lands next to the measured 46%-within-20% estimate-accuracy number, so it warrants a data check, not a shrug.</p></div>
+    <div class="signal"><div class="s-tag">Org idea · 1 voice</div><div class="s-name">Regional sales QA role</div>
+      <p>Detailed proposal from a BM: a regional sales-quality position to train CET reps, audit quotes/ABs, streamline new-manager sales training, and absorb the hardest leads. Overlaps the sales-bandwidth conversation already in motion.</p></div>
+    <div class="signal"><div class="s-tag">Goals design · 1–2 voices</div><div class="s-name">Branch-scorecard-aligned quarterly goals</div>
+      <p>Set each branch's quarterly goals from its own scorecard gaps (e.g., a branch whose biggest gaps are NPS + mover eNPS shouldn't carry the same priorities as everyone else). Thoughtful, concrete, QGR-relevant.</p></div>
+    <div class="signal"><div class="s-tag">Benefits paper-cut · 2 voices</div><div class="s-name">The shrinking holiday count</div>
+      <p>Stated 8 holidays are effectively ≤7 for M–F staff in years when holidays land on weekends. Two independent voices; cheap to fix, outsized goodwill.</p></div>
+    <div class="signal"><div class="s-tag">Measurement culture · 1 voice</div><div class="s-name">The Goodhart warning</div>
+      <p>"The team can become better at delivering on a metric without actually moving the needle associated with it." A field manager articulating metric distortion unprompted — worth keeping in the room whenever a new KPI ships.</p></div>
+    <div class="signal"><div class="s-tag">Knowledge base · 3 voices (emerging)</div><div class="s-name">One brain for resources</div>
+      <p>Docs live across Slack, Monday, Drive, and a growing pile of apps: "Can we have one app that is the center and brain for resources?" Three independent voices — watch whether the mover survey echoes it.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="kicker">Next Steps</div>
+  <h2>What we're doing about it</h2>
+  <div class="note">Each move maps to a survey theme. Items marked QGR finalize at the Quarterly Growth Review 7/29&ndash;30 &mdash; this is the working slate, not a locked plan.</div>
+  <table>
+    <tr><th>Priority</th><th>Move</th><th>Answers the theme</th><th>Where it lives</th></tr>
+    <tr><td>🔴</td><td><b>Speed to competence / manager development &amp; bench</b> &mdash; leading Q3 theme candidate: build field-ready crews and the manager bench fast (training app rollout, train-the-trainer, dept-head development).</td><td>Manager development + bench (8 voices)</td><td>QGR decision 7/29&ndash;30; master backlog</td></tr>
+    <tr><td>🔴</td><td><b>DFWT engagement follow-up</b> &mdash; line-by-line review of every DFWT response, then targeted 1:1 follow-ups. Continuation of the January DFWT deep-dive.</td><td>DFWT lowest region (+60)</td><td>Cameron + Mike, starting this cycle</td></tr>
+    <tr><td>🟡</td><td><b>Career-path clarity</b> &mdash; the mover promotion framework is built and live with HR (biweekly system-computed reviews, earned rungs, no caps); manager-side position levels + promotion criteria are queued behind it.</td><td>Career-path clarity + reviews</td><td>Anne (HR) &mdash; framework live; rollout sequencing at QGR</td></tr>
+    <tr><td>🟡</td><td><b>Pump the brakes: rollout &amp; tool governance</b> &mdash; proposed Q3 workstream: central data source, one toolkit, monthly big-rocks review so change lands in coordinated waves instead of a constant drip.</td><td>Pace of change</td><td>Q3 workstream candidate; QGR decision</td></tr>
+    <tr><td>🟡</td><td><b>Cross-team connection</b> &mdash; leadership boots-on-ground weeks + branch-visit cadence carry manager-to-manager contact; manager get-together cadence gets revisited with the Q3 plan.</td><td>Cross-team connection</td><td>Branch Visits rock model; QGR</td></tr>
+  </table>
+  <div class="callout"><b>The through-line:</b> nothing in this survey pivots the plan &mdash; it confirms it. The two loudest themes (build the bench, steady the pace of change) are already the center of the Q3 conversation. Our job is to close the loop visibly: you said it, here's what moved.</div>
+</section>
+
+<section>
+  <div class="kicker">Policy Change</div>
+  <h2>This was the last mandatory survey</h2>
+  <p style="font-size:14px;color:var(--grey-700);margin-top:8px">Starting next cycle, engagement surveys go <b>voluntary</b>. Two reasons. First, honesty: at 100% forced participation we probably have more than one true detractor &mdash; requiring a response can mask the signal it's supposed to surface. Second, participation itself becomes data: a branch that chooses 100% participation and a branch at 30% are telling us two very different things, and we'll read that per-branch rate as its own engagement signal going forward.</p>
+  <p style="font-size:14px;color:var(--grey-700);margin-top:8px">What that costs us: this cycle is the last clean apples-to-apples comparison against prior mandatory cycles. The first voluntary run sets a new baseline, and we'll grade trends from there. Anne owns the comms and the transition.</p>
+</section>
+
+<footer>
+  <b>Data notes.</b> 52 responses; survey confirmed closed 7/16/2026. Trend threshold: ≥4 independent voices; counts shown throughout.
+  Attribution audit ran before aggregation: 1 misattributed evaluation reassigned (respondent-confirmed), 10 straight-line multi-leader grade sets excluded as form-completion noise (the form shows every leader's section to every respondent — a fix is queued), 15 deliberate cross-team comments preserved outside the scorecard.
+  Leadership scores use own-team responses only — a basis change from prior cycles, so leadership scores are not strictly QoQ-comparable (company eNPS and trend are unaffected).
+  Individual-level responses and follow-ups live with Anne on the survey board. Prepared by Albert (Cameron's AI Chief of Staff), 7/16/2026.
+</footer>
+
+</div>
+<!-- v1.1 2026-07-17 next-steps+policy sections -->
+</body>
+</html>
